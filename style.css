@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.125rem;
+}
+strong {
+  font-weight: 800;
+}
+.container {
+  margin: 1em;
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+}
+.text-input {
+  width: 100%;
+  padding: 1em;
+  margin-bottom: 1em;
+  border: 3px solid green;
+  border-radius: 0.5rem;
+  background-color: rgb(198, 239, 198);
+  font-weight: 500;
+}
+.text-save-btn {
+  border: 0;
+  padding: 0.7em 1.5em;
+  background: green;
+  color: white;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  width: 40%;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.text-save-btn:hover {
+  transform: translateY(-0.15em);
+}
