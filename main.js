@@ -6,17 +6,22 @@ const inputEl = document.getElementById('input-el');
 const ulEl = document.getElementById('ul-el');
 
 inputBtn.addEventListener('click', function () {
-  const getValue = inputEl.value;
-  myLeads.push(getValue);
+  myLeads.push(inputEl.value);
+  //ulEl.innerHTML += '<li><a href=" ' + inputEl.value + ' " target=”_blank”>' + inputEl.value + '</a></li>';
+  ulEl.innerHTML += `
+                      <li>
+                        <a href="${inputEl.value}" target=”_blank”>${inputEl.value}</a>
+                      </li>
+                    `;
   inputEl.value = '';
-  console.log(myLeads); //console logging
-  renderLeads();
 });
 
-function renderLeads() {
-  let listItems = '';
-  for (let i = 0; i < myLeads.length; i++) {
-    listItems += '<li>' + myLeads[i] + '</li>';
-  }
-  ulEl.innerHTML = listItems;
-}
+//Old way of rendering but not efficient beacuse its looping evry item in array every time
+
+// function renderLeads() {
+//   let listItems = '';
+//   for (let i = 0; i < myLeads.length; i++) {
+//     listItems += '<li>' + myLeads[i] + '</li>';
+//   }
+//   ulEl.innerHTML = listItems;
+// }
