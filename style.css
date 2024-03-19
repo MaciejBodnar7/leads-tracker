@@ -9,6 +9,10 @@ body {
 strong {
   font-weight: 800;
 }
+ul {
+  list-style: none;
+  padding: 0;
+}
 .container {
   margin: 1em;
   display: flex;

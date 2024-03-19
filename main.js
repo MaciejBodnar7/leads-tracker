@@ -1,10 +1,17 @@
 console.log('extension by MB.');
 
-let inputBtn = document.getElementById('input-btn');
-
-let myLeads = '';
-let inputEl = document.getElementById('input-el');
+let myLeads = ['dummy1', 'dummy2', 'dummy3'];
+const inputBtn = document.getElementById('input-btn');
+const inputEl = document.getElementById('input-el');
+const ulEl = document.getElementById('ul-el');
 
 inputBtn.addEventListener('click', function () {
-  console.log('text-save-btn2');
+  const getValue = inputEl.value;
+  myLeads.push(getValue);
+
+  console.log(myLeads);
 });
+
+for (let i = 0; i < myLeads.length; i++) {
+  ulEl.textContent += myLeads[i] + ' ';
+}
