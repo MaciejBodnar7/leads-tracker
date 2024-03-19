@@ -13,6 +13,17 @@ ul {
   list-style: none;
   padding: 0;
 }
+li {
+  width: fit-content;
+  margin-top: 0.4em;
+  font-weight: 500;
+  font-size: 1rem;
+  border-bottom: 3px solid green;
+  padding-bottom: 0.3em;
+}
+li:last-child {
+  border: 0;
+}
 .container {
   margin: 1em;
   display: flex;
