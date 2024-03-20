@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  color: #404040;
 }
 body {
   margin: 0;
@@ -14,21 +15,27 @@ ul {
   padding: 0;
 }
 li {
-  width: 4rem;
-  margin-top: 0.4em;
+  width: fit-content;
+  margin-top: 0.6em;
   font-weight: 500;
   font-size: 1rem;
-  border-bottom: 3px solid green;
-  padding-bottom: 0.3em;
+  background: rgb(206, 238, 206);
+  padding: 0.6em;
+  border-radius: 0.6rem;
 }
-li:last-child {
-  border: 0;
+li:nth-child(2n) {
+  background: none;
+}
+a {
+  text-decoration: underline;
+  color: #404040;
 }
 .container {
   margin: 1em;
   display: flex;
   flex-direction: column;
   max-width: 500px;
+  min-width: 500px;
 }
 .text-input {
   width: 100%;
@@ -36,7 +43,7 @@ li:last-child {
   margin-bottom: 1em;
   border: 3px solid green;
   border-radius: 0.5rem;
-  background-color: rgb(198, 239, 198);
+  background-color: rgb(206, 238, 206);
   font-weight: 500;
 }
 .text-save-btn {
