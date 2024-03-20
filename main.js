@@ -4,9 +4,10 @@ let myLeads = [];
 const inputBtn = document.getElementById('input-btn');
 const inputEl = document.getElementById('input-el');
 const ulEl = document.getElementById('ul-el');
+const deleteBtn = document.getElementById('delete-btn');
 
 //get from local storage
-let leadsFromLocaleStorage = JSON.parse(localStorage.getItem('myLeads'));
+const leadsFromLocaleStorage = JSON.parse(localStorage.getItem('myLeads'));
 console.log(leadsFromLocaleStorage);
 
 if (leadsFromLocaleStorage) {
@@ -16,6 +17,12 @@ if (leadsFromLocaleStorage) {
 } else {
   console.log('false');
 }
+
+deleteBtn.addEventListener('dblclick', function () {
+  localStorage.clear();
+  myLeads = [];
+  ulEl.textContent = null;
+});
 
 inputBtn.addEventListener('click', function () {
   myLeads.push(inputEl.value);
