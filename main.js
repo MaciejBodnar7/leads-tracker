@@ -1,10 +1,12 @@
 console.log('extension by MB.');
 
 let myLeads = [];
+let oldMyLeads = [];
 const inputBtn = document.getElementById('input-btn');
 const inputEl = document.getElementById('input-el');
 const ulEl = document.getElementById('ul-el');
 const deleteBtn = document.getElementById('delete-btn');
+const tabBtn = document.getElementById('tab-btn');
 
 //get from local storage
 const leadsFromLocaleStorage = JSON.parse(localStorage.getItem('myLeads'));
@@ -12,12 +14,28 @@ console.log(leadsFromLocaleStorage);
 
 if (leadsFromLocaleStorage) {
   myLeads = leadsFromLocaleStorage;
-  renderLeads();
-  console.log('true');
+  render(myLeads);
+  console.log('true' + ' -local storage');
 } else {
-  console.log('false');
+  console.log('false' + ' -local storage');
 }
+// listen for tabsave button and store link from tab
+const tabs = [{ url: 'https://www.linkedin.com/in/per-harald-borgen/' }];
 
+tabBtn.addEventListener('click', function () {
+  console.log('tabbtn');
+  console.log(tabs[0].url);
+
+  myLeads.push(tabs[0].url);
+  localStorage.setItem('myLeads', JSON.stringify(myLeads));
+  ulEl.innerHTML += `
+                      <li>
+                        <a href="${tabs[0].url}" target=”_blank”>${tabs[0].url}</a>
+                      </li>
+                    `;
+});
+
+// listen for double click from delete button and wipe all linnk
 deleteBtn.addEventListener('dblclick', function () {
   localStorage.clear();
   myLeads = [];
@@ -48,13 +66,13 @@ inputBtn.addEventListener('click', function () {
 //   ulEl.innerHTML = listItems;
 // }
 
-function renderLeads() {
+function render(leads) {
   let listItems = '';
-  for (let i = 0; i < myLeads.length; i++) {
+  for (let i = 0; i < leads.length; i++) {
     listItems += `
           <li>
-              <a target='_blank' href='${myLeads[i]}'>
-                  ${myLeads[i]}
+              <a target='_blank' href='${leads[i]}'>
+                  ${leads[i]}
               </a>
           </li>
       `;

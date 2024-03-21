@@ -52,34 +52,30 @@ a {
   width: 100%;
   gap: 0.75em;
 }
-.text-save-btn {
+.btn {
   border: 0;
   padding: 0.7em 1.5em;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  border-radius: 0.5rem;
+  width: fit-content;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  letter-spacing: 0.1em;
+}
+.text-save-btn {
   background: green;
   color: white;
-  font-weight: 800;
-  letter-spacing: 0.05em;
-  width: 30%;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-  letter-spacing: 0.1em;
+}
+.text-savetab-btn {
+  background: green;
+  color: white;
 }
 .text-delete-btn {
-  border: 0;
-  padding: 0.7em 1.5em;
   background: rgb(201, 67, 67);
   color: white;
-  font-weight: 800;
-  letter-spacing: 0.05em;
-  width: 30%;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-  letter-spacing: 0.1em;
 }
-.text-save-btn:hover,
-.text-delete-btn:hover {
+.btn:hover {
   transform: translateY(-0.15em);
   -webkit-box-shadow: inset 0px 0px 13px 0px rgba(28, 28, 28, 1);
   -moz-box-shadow: inset 0px 0px 13px 0px rgba(28, 28, 28, 1);
