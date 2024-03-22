@@ -42,18 +42,23 @@ deleteBtn.addEventListener('dblclick', function () {
   ulEl.textContent = null;
 });
 
+// save input button with if that prevent saving empty text input
 inputBtn.addEventListener('click', function () {
-  myLeads.push(inputEl.value);
-  localStorage.setItem('myLeads', JSON.stringify(myLeads)); //saving leads to locla storage and turnig to string
-  //ulEl.innerHTML += '<li><a href=" ' + inputEl.value + ' " target=”_blank”>' + inputEl.value + '</a></li>';
-  ulEl.innerHTML += `
+  if (inputEl.value === '') {
+    console.log('nothing');
+  } else {
+    myLeads.push(inputEl.value);
+    localStorage.setItem('myLeads', JSON.stringify(myLeads)); //saving leads to locla storage and turnig to string
+    //ulEl.innerHTML += '<li><a href=" ' + inputEl.value + ' " target=”_blank”>' + inputEl.value + '</a></li>';
+    ulEl.innerHTML += `
                       <li>
                         <a href="${inputEl.value}" target=”_blank”>${inputEl.value}</a>
                       </li>
                     `;
-  inputEl.value = '';
-  console.log(myLeads);
-  console.log(localStorage.getItem('myLeads'));
+    inputEl.value = '';
+    console.log(myLeads);
+    console.log(localStorage.getItem('myLeads'));
+  }
 });
 
 //Old way of rendering but not efficient beacuse its looping evry item in array every time
