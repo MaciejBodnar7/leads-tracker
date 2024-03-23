@@ -19,20 +19,13 @@ if (leadsFromLocaleStorage) {
 } else {
   console.log('false' + ' -local storage');
 }
-// listen for tabsave button and store link from tab
-const tabs = [{ url: 'https://www.linkedin.com/in/per-harald-borgen/' }];
-
+// tab save button
 tabBtn.addEventListener('click', function () {
-  console.log('tabbtn');
-  console.log(tabs[0].url);
-
-  myLeads.push(tabs[0].url);
-  localStorage.setItem('myLeads', JSON.stringify(myLeads));
-  ulEl.innerHTML += `
-                      <li>
-                        <a href="${tabs[0].url}" target=”_blank”>${tabs[0].url}</a>
-                      </li>
-                    `;
+  chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+    myLeads.push(tabs[0].url);
+    localStorage.setItem('myLeads', JSON.stringify(myLeads));
+    render(myLeads);
+  });
 });
 
 // listen for double click from delete button and wipe all linnk
